@@ -7,51 +7,51 @@ var lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n
 var upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 
-var confirmLength = "";
-var confirmSpecialCharacter;
-var confirmNumericCharacter;
+var confLength = "";
+var confSpecialCharacter;
+var confNumericCharacter;
 var confirmUpperCase;
 var confirmLowerCase;
 
 function generatePassword() {
-  var confirmLength = (prompt("How many characters would you like in your password?"));
+  var confLength = (prompt("How many characters would you like in your password?"));
 
-  while(confirmLength <=7 || confirmLength >=129) {
+  while(confLength <=7 || confLength >=129) {
       alert("Password length must be between 8-128 characters! Try again");
-      var confirmLength = (prompt("How many characters would you like in your password?"));
+      var confLength = (prompt("How many characters would you like in your password?"));
       } 
+  
+      alert(`Your password will have ${confLength} characters`); 
 
-      alert(`Your password will have ${confirmLength} characters`);
-
-    var confirmSpecialCharacter = confirm("Click OK to confirm if you would like to include special characters");
-    var confirmNumericCharacter = confirm("Click OK to confirm if you would like to include numeric characters");    
-    var confirmLowerCase = confirm("Click OK to confirm if you would like to include lowercase characters");
-    var confirmUpperCase = confirm("Click OK to confirm if you would like to include uppercase characters");
+    var confSpecialCharacter = confirm("Click OK to confirm if you would like to include special characters");
+    var confNumericCharacter = confirm("Click OK to confirm if you would like to include numeric characters");    
+    var confLowerCase = confirm("Click OK to confirm if you would like to include lowercase characters");
+    var confUpperCase = confirm("Click OK to confirm if you would like to include uppercase characters");
       
-      while(confirmUpperCase === false && confirmLowerCase === false && confirmSpecialCharacter === false && confirmNumericCharacter === false) {
+      while(confUpperCase === false && confLowerCase === false && confSpecialCharacter === false && confNumericCharacter === false) {
         alert("You must choose at least one parameter");
-        var confirmSpecialCharacter = confirm("Click OK to confirm if you would like to include special characters");
-        var confirmNumericCharacter = confirm("Click OK to confirm if you would like to include numeric characters");    
-        var confirmLowerCase = confirm("Click OK to confirm if you would like to include lowercase characters");
-        var confirmUpperCase = confirm("Click OK to confirm if you would like to include uppercase characters");   
+        var confSpecialCharacter = confirm("Click OK to confirm if you would like to include special characters");
+        var confNumericCharacter = confirm("Click OK to confirm if you would like to include numeric characters");    
+        var confLowerCase = confirm("Click OK to confirm if you would like to include lowercase characters");
+        var confUpperCase = confirm("Click OK to confirm if you would like to include uppercase characters");   
     } 
 
     
     var passwordCharacters = []
       
-    if (confirmSpecialCharacter) {
+    if (confSpecialCharacter) {
       passwordCharacters = passwordCharacters.concat(special)
     }
 
-    if (confirmNumericCharacter) {
+    if (confNumericCharacter) {
       passwordCharacters = passwordCharacters.concat(number)
     }
       
-    if (confirmLowerCase) {
+    if (confLowerCase) {
       passwordCharacters = passwordCharacters.concat(lower)
     }
 
-    if (confirmUpperCase) {
+    if (confUpperCase) {
       passwordCharacters = passwordCharacters.concat(upper)
     }
 
@@ -59,7 +59,7 @@ function generatePassword() {
 
 
 var randomPassword = ""      
-      for (var i = 0; i < confirmLength; i++) {
+      for (var i = 0; i < confLength; i++) {
         randomPassword = randomPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
         console.log(randomPassword)
       }
